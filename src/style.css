@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-javida-primary: #396dad;
+  --color-javida-dark: #152942;
+  --color-javida-accent: #2563eb;
+  --color-javida-accent-hover: #1d4ed8;
+  --color-javida-light: #f8fafc;
+  --color-javida-text: #0f172a;
+  --color-javida-muted: #64748b;
+  --color-javida-border: #e2e8f0;
+  --color-javida-highlight: #60a5fa;
+
+  --animate-scroll-left: scrollLeft 80s linear infinite;
+
+  @keyframes scrollLeft {
+    to {
+      left: -290px;
+    }
+  }
+}
