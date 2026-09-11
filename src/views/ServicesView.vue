@@ -20,7 +20,7 @@
     <!-- LISTADO DE SERVICIOS (Filas con fondos alternados) -->
     <div class="divide-y divide-javida-border">
       <section
-        v-for="(item, index) in servicios"
+        v-for="(item, index) in services"
         :key="item.id"
         :id="item.id"
         :class="['py-20', index % 2 !== 0 ? 'bg-javida-light' : 'bg-white']"
@@ -33,7 +33,7 @@
               <span
                 class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-blue-50 text-javida-accent mb-4"
               >
-                <font-awesome-icon :icon="['fa-solid', item.iconBadge]" />
+                <font-awesome-icon :icon="item.iconBadge" />
                 {{ item.badge }}
               </span>
 
@@ -72,7 +72,7 @@
                 to="/contacto"
                 class="inline-flex items-center gap-2 bg-javida-primary hover:bg-javida-accent text-white text-sm font-semibold px-6 py-3 rounded-lg transition-all shadow-sm hover:-translate-y-0.5"
               >
-                <span>{{ item.btnTexto }}</span>
+                <span>Solicitar cotización</span>
                 <font-awesome-icon
                   icon="fa-solid fa-arrow-right"
                   class="text-xs"
@@ -81,8 +81,49 @@
             </div>
 
             <!-- Columna de Galería Asimétrica (5 cols) -->
-            <div class="lg:col-span-5 grid grid-cols-2 gap-3">
-              <!-- Imagen principal (ancho doble) -->
+            <div
+              v-if="item.id === 'torques'"
+              class="lg:col-span-5 grid grid-cols-2 grid-rows-2 gap-3 h-72 sm:h-80 lg:h-96"
+            >
+              <!-- Miniatura 1 (Izquierda Arriba) -->
+              <div
+                class="row-span-1 rounded-xl overflow-hidden border border-javida-border shadow-xs group"
+              >
+                <img
+                  :src="item.galeria.thumb1"
+                  :alt="item.galeria.alt"
+                  loading="lazy"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              <!-- Imagen principal (Derecha Alto Completo) -->
+              <div
+                class="col-start-2 row-span-2 rounded-xl overflow-hidden border border-javida-border shadow-xs group"
+              >
+                <img
+                  :src="item.galeria.principal"
+                  :alt="item.galeria.alt"
+                  loading="lazy"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              <!-- Miniatura 2 (Izquierda Abajo) -->
+              <div
+                class="col-start-1 row-span-1 rounded-xl overflow-hidden border border-javida-border shadow-xs group"
+              >
+                <img
+                  :src="item.galeria.thumb2"
+                  :alt="item.galeria.alt"
+                  loading="lazy"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+
+            <!-- Estructura estándar original para los demás servicios -->
+            <div v-else class="lg:col-span-5 grid grid-cols-2 gap-3">
               <div
                 class="col-span-2 h-60 sm:h-64 rounded-xl overflow-hidden border border-javida-border shadow-xs group"
               >
@@ -93,8 +134,6 @@
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-
-              <!-- Miniatura 1 -->
               <div
                 class="h-32 sm:h-36 rounded-xl overflow-hidden border border-javida-border shadow-xs group"
               >
@@ -105,8 +144,6 @@
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-
-              <!-- Miniatura 2 -->
               <div
                 class="h-32 sm:h-36 rounded-xl overflow-hidden border border-javida-border shadow-xs group"
               >
@@ -146,107 +183,12 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import MainLayout from "../layout/MainLayout.vue";
 
-const servicios = [
-  {
-    id: "mantenimiento",
-    badge: "División de Mantenimiento",
-    iconBadge: "fa-toolbox",
-    titulo: "Mantenimiento Industrial y Válvulas",
-    lead: "Intervención operativa orientada a garantizar la continuidad del proceso, mitigar desgastes mecánicos y preservar la vida útil de los componentes de conducción de fluidos.",
-    btnTexto: "Solicitar Mantenimiento",
-    specs: [
-      {
-        negrita: "Actuadores mecánicos:",
-        texto:
-          "Mantenimiento integral a actuadores de válvulas de seccionamiento para maniobras precisas en líneas de transporte.",
-      },
-      {
-        negrita: "Reducción de paradas no programadas:",
-        texto:
-          "Detección oportuna de fatiga y desgaste preventivo bajo normativas de seguridad industrial.",
-      },
-      {
-        negrita: "Alineación y calibración:",
-        texto:
-          "Verificación de apertura, cierre hermético y lubricación especializada.",
-      },
-    ],
-    // Galería: 1 principal + 2 miniaturas
-    galeria: {
-      principal:
-        "/src/assets/images/services/mantenimiento/servicio_mantenimiento_1.webp",
-      thumb1:
-        "/src/assets/images/services/mantenimiento/servicio_mantenimiento_2.webp",
-      thumb2:
-        "/src/assets/images/services/mantenimiento/servicio_mantenimiento_3.webp",
-      alt: "Mantenimiento de válvulas y tuberías",
-    },
-  },
-  {
-    id: "hidrostaticas",
-    badge: "Integridad y Presión",
-    iconBadge: "fa-gauge-high",
-    titulo: "Pruebas Hidrostáticas",
-    lead: "Evaluación rigurosa de hermeticidad y resistencia mecánica en sistemas de tuberías, recipientes a presión y válvulas, garantizando una contención segura bajo condiciones severas de servicio.",
-    btnTexto: "Cotizar Prueba Hidrostática",
-    specs: [
-      {
-        negrita: "Verificación de resistencia estructural:",
-        texto:
-          "Monitoreo de esfuerzos con instrumentación calibrada y gráfica digital de presión vs. tiempo.",
-      },
-      {
-        negrita: "Detección de defectos de fabricación:",
-        texto:
-          "Identificación preventiva de microfugas o fisuras en soldaduras y cuerpo de válvulas.",
-      },
-      {
-        negrita: "Cumplimiento de estándares:",
-        texto:
-          "Apego estricto a las normas de seguridad para líneas de separación y transporte de hidrocarburos.",
-      },
-    ],
-    galeria: {
-      principal: "/src/assets/images/services/pruebas/servicio_prueba_2.webp",
-      thumb1: "/src/assets/images/services/pruebas/servicio_prueba_1.webp",
-      thumb2: "/src/assets/images/services/pruebas/servicio_prueba_3.webp",
-      alt: "Equipos y manómetros para pruebas de presión",
-    },
-  },
-  {
-    id: "torques",
-    badge: "Uniones Mecánicas",
-    iconBadge: "fa-wrench",
-    titulo: "Torque Controlado",
-    lead: "Aplicación calibrada de torque mediante equipos hidráulicos o mecánicos en uniones bridadas, asegurando la compresión homogénea de juntas para evitar cualquier riesgo de escape o fuga.",
-    btnTexto: "Solicitar Apriete de Bridas",
-    specs: [
-      {
-        negrita: "Compresión uniforme del empaque:",
-        texto:
-          "Procedimiento cruzado que preserva la integridad de las juntas metálicas y espirales.",
-      },
-      {
-        negrita: "Equipamiento certificado:",
-        texto:
-          "Llaves de torque y multiplicadores calibrados para tolerancias de apriete exactas.",
-      },
-      {
-        negrita: "Aseguramiento hermético:",
-        texto:
-          "Cero emisiones fugitivas en recipientes de alta presión y ductos de proceso.",
-      },
-    ],
-    galeria: {
-      principal: "/src/assets/images/services/torque/servicio_torque_1.webp",
-      thumb1: "/src/assets/images/services/torque/servicio_torque_2.webp",
-      thumb2: "/src/assets/images/services/torque/servicio_torque_3.webp",
-      alt: "Torqueado hidráulico y apriete de pernos",
-    },
-  },
-];
+import { SERVICIOS_EMPRESA } from "../data/services.js";
+
+const services = ref(SERVICIOS_EMPRESA);
 </script>
 
 <style scoped></style>

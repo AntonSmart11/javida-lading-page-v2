@@ -21,18 +21,21 @@
               </h1>
 
               <p class="text-javida-muted text-base leading-relaxed mb-4">
-                En <strong>Grupo Javida</strong> ofrecemos servicios altamente
-                especializados en mantenimiento de válvulas, pruebas
-                hidrostáticas y torque controlado, sustentados en un compromiso
-                inquebrantable con la seguridad, el personal y el medio
-                ambiente.
+                <strong>Grupo Javida</strong> somos una empresa mexicana con más
+                de una década de experiencia verificable, que se respalda con la
+                confianza de nuestros clientes. Nos encontramos consolidados con
+                presencia en los sectores industriales más críticos del país,
+                contando con bases operativas en Villahermosa y Cárdenas,
+                Tabasco, así como en Monterrey, Nuevo León.
               </p>
 
               <p class="text-javida-muted text-base leading-relaxed mb-8">
-                Buscamos generar valor tangible para nuestros clientes mediante
-                soluciones ágiles y eficientes, impulsando el desarrollo técnico
-                continuo con herramientas de vanguardia y apego estricto a las
-                normas del sector.
+                Proporcionamos servicios de instalación y mantenimiento a
+                válvulas y equipos de proceso, torque controlado, pruebas de
+                hermeticidad, corte en frío, así como servicios de fabricación y
+                montaje de spools. Estamos comprometidos con proveer equipos y
+                servicios de la más alta calidad en soluciones para las diversas
+                industrias.
               </p>
 
               <div class="space-y-3 pt-2">
@@ -237,37 +240,19 @@ const pilares = [
     titulo: "Objetivo",
     icono: "fa-bullseye",
     descripcion:
-      "Garantizar la hermeticidad y la integridad estructural de ductos y sistemas de tuberías mediante pruebas hidrostáticas rigurosas, comprobando que resistan los esfuerzos de presión operativa sin riesgo alguno de fugas.",
+      "Garantizar la hermeticidad, confiabilidad y óptima operación de equipos e instalaciones industriales mediante pruebas de estanqueidad rigurosas, mantenimiento calificado a válvulas y fabricación especializada de spools, asegurando continuidad operativa y cero riesgos de fuga",
   },
   {
     titulo: "Misión",
     icono: "fa-compass",
     descripcion:
-      "Crear valor sostenible a través de servicios industriales de excelencia:",
-    puntos: [
-      {
-        titulo: "Clientes:",
-        texto: "Soluciones confiables y calidad certificada.",
-      },
-      {
-        titulo: "Empresa:",
-        texto: "Rentabilidad basada en procesos eficientes.",
-      },
-      {
-        titulo: "Equipo:",
-        texto: "Desarrollo profesional y motivación constante.",
-      },
-      {
-        titulo: "Comunidad:",
-        texto: "Responsabilidad social y respeto ambiental.",
-      },
-    ],
+      "Proveer soluciones a nuestros clientes que generen la eficiencia y excelencia en el desarrollo de sus proyectos, cubriendo y excediendo  las expectativas; cumpliendo  con  los compromisos adquiridos. Con un servicio postventa a través del seguimiento y soporte técnico que asegure que nuestros clientes reciban lo que necesitan, cuando lo necesitan y donde lo necesitan.",
   },
   {
     titulo: "Visión",
     icono: "fa-eye",
     descripcion:
-      "Consolidar una posición de liderazgo en el mantenimiento a válvulas y pruebas hidrostáticas, implementando tecnología de vanguardia y ampliando permanentemente nuestra oferta de servicios altamente especializados para el sector.",
+      "Ser considerado como un proveedor altamente confiable, para  el suministro de servicios especializados en las empresas de la industria energética y metalmecánica. A través de soluciones reales y eficientes con estricto cumplimiento de altos estándares de calidad y normatividad en materia de seguridad y protección al medio ambiente.",
   },
 ];
 

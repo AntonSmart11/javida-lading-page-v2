@@ -7,7 +7,7 @@
       <div
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
       >
-        <RouterLink href="/" class="flex items-center gap-3">
+        <RouterLink to="/" class="flex items-center gap-3">
           <img
             :src="logoJavida"
             alt="Grupo Javida"
@@ -27,16 +27,6 @@
             {{ link.name }}
           </RouterLink>
         </nav>
-
-        <div class="hidden md:flex items-center">
-          <RouterLink
-            :to="{ path: '/contacto' }"
-            class="bg-javida-accent hover:bg-javida-accent-hover text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-all shadow-sm"
-          >
-            Solicitar Cotización
-            <font-awesome-icon icon="fa-solid fa-arrow-right" class="ml-2" />
-          </RouterLink>
-        </div>
 
         <button
           @click="menuOpen = !menuOpen"
@@ -63,13 +53,6 @@
         >
           {{ link.name }}
         </RouterLink>
-        <a
-          href="/#contacto"
-          class="block text-javida-accent font-semibold pt-2"
-          @click="menuOpen = false"
-        >
-          Solicitar Cotización
-        </a>
       </div>
     </header>
 
@@ -89,70 +72,150 @@
         >
           <!-- Columna 1: Logo e Identidad (lg:col-span-3) -->
           <div class="lg:col-span-3 flex flex-col items-start">
-            <RouterLink to="/" class="mb-3 block">
+            <RouterLink to="/" class="mb-4 block">
               <img
                 :src="logoJavida"
                 alt="Grupo Javida"
-                class="h-17 w-auto object-contain brightness-150"
+                class="h-16 w-auto object-contain brightness-150"
               />
             </RouterLink>
-          </div>
-
-          <!-- Columna 2: Dirección (lg:col-span-3) -->
-          <div class="lg:col-span-3">
-            <h4
-              class="text-xs font-bold uppercase tracking-wider text-javida-highlight mb-4"
-            >
-              Dirección
-            </h4>
-            <p class="font-bold text-white mb-1">Oficina</p>
-            <p class="text-slate-400 text-xs leading-relaxed">
-              Calle Sindicato De Agricultura 301-B,<br />
-              Col. Adolfo López Mateos, C.P. 86040<br />
-              Villahermosa, Tab.
+            <p class="text-xs text-slate-400 leading-relaxed pr-4">
+              Servicios integrales para la industria: pruebas de hermeticidad,
+              mantenimiento de válvulas, torque controlado y soluciones
+              especializadas.
             </p>
           </div>
 
-          <!-- Columna 3: Contacto (lg:col-span-3) -->
+          <!-- Columna 2: Sedes e Instalaciones (lg:col-span-4) -->
+          <div class="lg:col-span-4">
+            <h4
+              class="text-xs font-bold uppercase tracking-wider text-javida-highlight mb-4"
+            >
+              Sedes e Instalaciones
+            </h4>
+
+            <div class="space-y-4 text-xs leading-relaxed text-slate-400">
+              <!-- Sede Central -->
+              <div>
+                <p class="font-bold text-white flex items-center gap-1.5 mb-1">
+                  <font-awesome-icon
+                    icon="fa-solid fa-building"
+                    class="text-javida-highlight text-[10px]"
+                  />
+                  <span>Oficinas Centrales:</span>
+                </p>
+                <p>
+                  Calle Sindicato de Agricultura 301-B, Col. Adolfo López
+                  Mateos, C.P. 86040, Villahermosa, Tabasco.
+                </p>
+              </div>
+
+              <!-- Bodega Tabasco -->
+              <div>
+                <p class="font-bold text-white flex items-center gap-1.5 mb-1">
+                  <font-awesome-icon
+                    icon="fa-solid fa-warehouse"
+                    class="text-javida-highlight text-[10px]"
+                  />
+                  <span>Bodega Operativa:</span>
+                </p>
+                <p>
+                  Carr. Federal Villahermosa - Cárdenas, R/A González 1ra.
+                  Secc., C.P. 86280, Centro, Tabasco.
+                </p>
+              </div>
+
+              <!-- Sede Norte -->
+              <div>
+                <p class="font-bold text-white flex items-center gap-1.5 mb-1">
+                  <font-awesome-icon
+                    icon="fa-solid fa-location-dot"
+                    class="text-javida-highlight text-[10px]"
+                  />
+                  <span>Sede Norte:</span>
+                </p>
+                <p>Zona Metropolitana de Monterrey, Nuevo León.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 3: Contacto Directo (lg:col-span-3) -->
           <div class="lg:col-span-3">
             <h4
               class="text-xs font-bold uppercase tracking-wider text-javida-highlight mb-4"
             >
-              Contacto
+              Atención Inmediata
             </h4>
-            <ul class="space-y-2 text-xs text-slate-400">
+            <ul class="space-y-3 text-xs text-slate-400">
+              <!-- Teléfonos -->
               <li>
-                <span class="font-bold text-white">Cel.</span>
-                <a
-                  href="tel:8126002858"
-                  class="hover:text-javida-highlight transition-colors ml-1"
+                <span class="font-bold text-white block mb-0.5"
+                  >Líneas Telefónicas:</span
                 >
-                  812-600-2858
-                </a>
+                <div class="flex flex-col gap-1">
+                  <a
+                    href="tel:9932789583"
+                    class="hover:text-javida-highlight transition-colors flex items-center"
+                  >
+                    <span class="mr-1">993-286-0921</span>
+                    <span class="text-[10px] text-slate-500 font-medium">
+                      (Sur)</span
+                    >
+                  </a>
+                  <a
+                    href="tel:8126002858"
+                    class="hover:text-javida-highlight transition-colors flex items-center"
+                  >
+                    <span class="mr-1">812-600-2858</span>
+                    <span class="text-[10px] text-slate-500 font-medium">
+                      (Norte)</span
+                    >
+                  </a>
+                </div>
               </li>
-              <li>
-                <span class="font-bold text-white">Cel.</span>
-                <a
-                  href="tel:9932789583"
-                  class="hover:text-javida-highlight transition-colors ml-1"
-                >
-                  993-278-9583
-                </a>
-              </li>
+
+              <!-- Correos -->
               <li class="pt-1">
-                <span class="font-bold text-white">Email:</span>
-                <a
-                  href="mailto:ventas@javida.com.mx"
-                  class="hover:text-javida-highlight transition-colors ml-1"
+                <span class="font-bold text-white block mb-0.5"
+                  >Ventas y Cotizaciones:</span
                 >
-                  ventas@javida.com.mx
-                </a>
+                <div class="flex flex-col gap-1">
+                  <a
+                    href="mailto:ventas@javida.com.mx"
+                    class="hover:text-javida-highlight transition-colors break-all"
+                  >
+                    ventas@javida.com.mx
+                    <span class="text-[10px] text-slate-500 font-medium"
+                      >(Sur)</span
+                    >
+                  </a>
+                  <a
+                    href="mailto:ventasmty@javida.com.mx"
+                    class="hover:text-javida-highlight transition-colors break-all"
+                  >
+                    ventasmty@javida.com.mx
+                    <span class="text-[10px] text-slate-500 font-medium"
+                      >(Norte)</span
+                    >
+                  </a>
+                </div>
+              </li>
+
+              <!-- Horario -->
+              <li class="pt-2 border-t border-slate-800">
+                <span class="text-slate-400 flex items-center gap-1.5">
+                  <font-awesome-icon
+                    icon="fa-solid fa-clock"
+                    class="text-javida-highlight text-[10px]"
+                  />
+                  <span>Lun a Vie: 9:00 AM - 5:00 PM</span>
+                </span>
               </li>
             </ul>
           </div>
 
-          <!-- Columna 4: Páginas (lg:col-span-3) -->
-          <div class="lg:col-span-3">
+          <!-- Columna 4: Navegación (lg:col-span-2) -->
+          <div class="lg:col-span-2">
             <h4
               class="text-xs font-bold uppercase tracking-wider text-javida-highlight mb-4"
             >
@@ -162,7 +225,7 @@
               <li v-for="link in navLinks" :key="link.name">
                 <RouterLink
                   :to="link.to"
-                  class="hover:text-white transition-colors"
+                  class="hover:text-white transition-colors block py-0.5"
                 >
                   {{ link.name }}
                 </RouterLink>
@@ -175,7 +238,7 @@
         <div
           class="border-t border-slate-800/80 pt-6 text-center text-xs text-slate-500"
         >
-          <p>© 2026 Javida. Todos los derechos reservados.</p>
+          <p>© 2026 Grupo Javida. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

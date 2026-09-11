@@ -7,7 +7,7 @@
           <h1
             class="text-3xl sm:text-4xl font-extrabold uppercase tracking-wider text-javida-primary mb-3"
           >
-            Nuestros Clientes
+            Empresas que Confían en Nosotros
           </h1>
           <p class="text-javida-muted text-base leading-relaxed">
             Empresas del sector energético e industrial que han depositado su
@@ -142,8 +142,11 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import MainLayout from "../layout/MainLayout.vue";
-import { imagesClients } from "../stores/store";
+import { IMAGES_CLIENTS } from "../data/clients.js";
+
+const imagesClients = ref(IMAGES_CLIENTS);
 </script>
 
 <style scoped></style>

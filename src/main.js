@@ -1,5 +1,4 @@
 import { createApp } from "vue";
-import { createPinia } from "pinia";
 import App from "./App.vue";
 import "./style.css";
 import router from "./router";
@@ -33,6 +32,13 @@ import {
   faFileCircleCheck,
   faRotate,
   faPhone,
+  faCircleCheck,
+  faCircleXmark,
+  faArrowDown,
+  faMapLocationDot,
+  faWarehouse,
+  faBuilding,
+  faDiagramProject,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -61,12 +67,18 @@ library.add(
   faFileCircleCheck,
   faRotate,
   faPhone,
+  faCircleCheck,
+  faCircleXmark,
+  faArrowUpRightFromSquare,
+  faArrowDown,
+  faMapLocationDot,
+  faWarehouse,
+  faBuilding,
+  faDiagramProject,
 );
 
 const app = createApp(App);
-const pinia = createPinia();
 
 app.component("font-awesome-icon", FontAwesomeIcon);
-app.use(pinia);
 app.use(router);
 app.mount("#app");
