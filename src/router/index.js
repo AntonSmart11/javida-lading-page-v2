@@ -11,7 +11,10 @@ const routes = [
     name: "home",
     component: HomeView,
     meta: {
-      title: "Grupo Javida | Servicios Industriales y Torque Controlado",
+      title:
+        "Grupo Javida | Pruebas de Hermeticidad, Torque y Mantenimiento de Válvulas",
+      description:
+        "Soluciones integrales para la industria: pruebas de presión hidrostáticas y neumáticas, torque controlado, corte en frío y spools de tubería.",
     },
   },
   {
@@ -19,7 +22,10 @@ const routes = [
     name: "servicios",
     component: ServicesView,
     meta: {
-      title: "Servicios Industriales y Torque Controlado | Grupo Javida",
+      title:
+        "Servicios Industriales | Hermeticidad, Válvulas, Torque y Spools | Grupo Javida",
+      description:
+        "Catálogo especializado de servicios técnicos: mantenimiento a válvulas, torque calibrado, corte en frío, corridas de diablos y fabricación de spools.",
     },
   },
   {
@@ -27,7 +33,9 @@ const routes = [
     name: "nosotros",
     component: AboutView,
     meta: {
-      title: "Sobre Nosotros y Política Integral | Grupo Javida",
+      title: "Sobre Nosotros | Grupo Javida",
+      description:
+        "Conoce la trayectoria de Grupo Javida, nuestra infraestructura operativa, rigor normativo y compromiso de cero fugas en el sector industrial.",
     },
   },
   {
@@ -35,7 +43,9 @@ const routes = [
     name: "clientes",
     component: ClientsView,
     meta: {
-      title: "Nuestros Clientes y Alianzas | Grupo Javida",
+      title: "Empresas que Confían en Nosotros | Grupo Javida",
+      description:
+        "Respaldo operativo comprobado en proyectos de alta criticidad para empresas e instituciones líderes del sector industrial y energético.",
     },
   },
   {
@@ -43,7 +53,10 @@ const routes = [
     name: "contacto",
     component: ContactView,
     meta: {
-      title: "Contáctanos y Cotizaciones | Grupo Javida",
+      title:
+        "Contacto y Cotizaciones | Sedes Villahermosa y Monterrey | Grupo Javida",
+      description:
+        "Solicita cotización técnica directa. Oficinas y bodegas operativas en Tabasco y Nuevo León con cobertura de servicios en todo México.",
     },
   },
 ];
@@ -68,8 +81,15 @@ const router = createRouter({
 });
 
 router.afterEach((to) => {
-  const defaultTitle = "Grupo Javida | Soluciones para la Industria Energética";
-  document.title = to.meta.title || defaultTitle;
+  // Actualizar el título de la pestaña
+  document.title =
+    to.meta.title || "Grupo Javida | Servicios Integrales para la Industria";
+
+  // Actualizar la meta descripción dinámica para SEO
+  const descriptionElement = document.querySelector('meta[name="description"]');
+  if (descriptionElement && to.meta.description) {
+    descriptionElement.setAttribute("content", to.meta.description);
+  }
 });
 
 export default router;

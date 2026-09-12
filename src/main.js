@@ -39,6 +39,8 @@ import {
   faWarehouse,
   faBuilding,
   faDiagramProject,
+  faSnowflake,
+  faArrowsSplitUpAndLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -75,6 +77,8 @@ library.add(
   faWarehouse,
   faBuilding,
   faDiagramProject,
+  faSnowflake,
+  faArrowsSplitUpAndLeft,
 );
 
 const app = createApp(App);
