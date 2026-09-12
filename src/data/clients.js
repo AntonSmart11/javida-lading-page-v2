@@ -2,99 +2,120 @@
 
 export const IMAGES_CLIENTS = [
   {
-    src: "/src/assets/images/clients/arendal.webp",
+    src: new URL("../assets/images/clientes/arendal.webp", import.meta.url)
+      .href,
     alt: "Arendal",
   },
   {
-    src: "/src/assets/images/clients/ccyes.webp",
+    src: new URL("../assets/images/clientes/ccyes.webp", import.meta.url).href,
     alt: "CCYES",
   },
   {
-    src: "/src/assets/images/clients/comursa.webp",
+    src: new URL("../assets/images/clientes/comursa.webp", import.meta.url)
+      .href,
     alt: "Comursa",
   },
   {
-    src: "/src/assets/images/clients/diavaz.webp",
+    src: new URL("../assets/images/clientes/diavaz.webp", import.meta.url).href,
     alt: "Diavaz",
   },
   {
-    src: "/src/assets/images/clients/diprasa.webp",
+    src: new URL("../assets/images/clientes/diprasa.webp", import.meta.url)
+      .href,
     alt: "Diprasa",
   },
   {
-    src: "/src/assets/images/clients/diprozeza.webp",
+    src: new URL("../assets/images/clientes/diprozeza.webp", import.meta.url)
+      .href,
     alt: "Diprozeza",
   },
   {
-    src: "/src/assets/images/clients/duratec.webp",
+    src: new URL("../assets/images/clientes/duratec.webp", import.meta.url)
+      .href,
     alt: "Duratec",
   },
   {
-    src: "/src/assets/images/clients/eigsa.webp",
+    src: new URL("../assets/images/clientes/eigsa.webp", import.meta.url).href,
     alt: "Eigsa",
   },
   {
-    src: "/src/assets/images/clients/exaiom.webp",
+    src: new URL("../assets/images/clientes/exaiom.webp", import.meta.url).href,
     alt: "Exaiom",
   },
   {
-    src: "/src/assets/images/clients/flv.webp",
+    src: new URL("../assets/images/clientes/flv.webp", import.meta.url).href,
     alt: "FLV",
   },
   {
-    src: "/src/assets/images/clients/ga.webp",
+    src: new URL("../assets/images/clientes/ga.webp", import.meta.url).href,
     alt: "GA Energy",
   },
   {
-    src: "/src/assets/images/clients/grupo_carso.webp",
+    src: new URL("../assets/images/clientes/grupo_carso.webp", import.meta.url)
+      .href,
     alt: "Grupo Carso",
   },
   {
-    src: "/src/assets/images/clients/indheca.webp",
+    src: new URL("../assets/images/clientes/indheca.webp", import.meta.url)
+      .href,
     alt: "Indheca",
   },
   {
-    src: "/src/assets/images/clients/jm_corporativo.webp",
+    src: new URL(
+      "../assets/images/clientes/jm_corporativo.webp",
+      import.meta.url,
+    ).href,
     alt: "JS Corporativo",
   },
   {
-    src: "/src/assets/images/clients/mayurse.webp",
+    src: new URL("../assets/images/clientes/mayurse.webp", import.meta.url)
+      .href,
     alt: "Mayurse",
   },
   {
-    src: "/src/assets/images/clients/measures_solutions.webp",
+    src: new URL(
+      "../assets/images/clientes/measures_solutions.webp",
+      import.meta.url,
+    ).href,
     alt: "Measures Solutions",
   },
   {
-    src: "/src/assets/images/clients/mondelez.webp",
+    src: new URL("../assets/images/clientes/mondelez.webp", import.meta.url)
+      .href,
     alt: "Mondelez",
   },
   {
-    src: "/src/assets/images/clients/pimex.webp",
+    src: new URL("../assets/images/clientes/pimex.webp", import.meta.url).href,
     alt: "Pimex",
   },
   {
-    src: "/src/assets/images/clients/r&o.webp",
+    src: new URL("../assets/images/clientes/r&o.webp", import.meta.url).href,
     alt: "R&O",
   },
   {
-    src: "/src/assets/images/clients/semat.webp",
+    src: new URL("../assets/images/clientes/semat.webp", import.meta.url).href,
     alt: "Semat",
   },
   {
-    src: "/src/assets/images/clients/servipetrol.webp",
+    src: new URL("../assets/images/clientes/servipetrol.webp", import.meta.url)
+      .href,
     alt: "Servi Petrol",
   },
   {
-    src: "/src/assets/images/clients/tec_del_agua.webp",
+    src: new URL("../assets/images/clientes/tec_del_agua.webp", import.meta.url)
+      .href,
     alt: "Tec del Agua",
   },
   {
-    src: "/src/assets/images/clients/techcorr.webp",
+    src: new URL("../assets/images/clientes/techcorr.webp", import.meta.url)
+      .href,
     alt: "Techcorr",
   },
   {
-    src: "/src/assets/images/clients/wm_refractories.webp",
+    src: new URL(
+      "../assets/images/clientes/wm_refractories.webp",
+      import.meta.url,
+    ).href,
     alt: "WM Refractories",
   },
 ];
