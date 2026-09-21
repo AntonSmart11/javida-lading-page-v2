@@ -154,13 +154,96 @@
 
           <div class="sm:col-span-2">
             <label class="block text-xs font-semibold text-slate-700 mb-1"
-              >Mensaje *</label
+              >Servicio *</label
+            >
+
+            <div class="relative">
+              <select
+                v-model="contacto.servicio"
+                @change="limpiarError('servicio')"
+                :class="[
+                  'w-full px-3.5 pr-10 py-2.5 bg-javida-light border rounded-lg text-sm transition-all focus:outline-hidden focus:bg-white appearance-none cursor-pointer',
+                  !contacto.servicio ? 'text-slate-400' : 'text-slate-700',
+                  errores.servicio
+                    ? 'border-red-500 ring-2 ring-red-500/10'
+                    : 'border-javida-border focus:border-javida-accent focus:ring-3 focus:ring-blue-500/10',
+                ]"
+              >
+                <option value="" disabled selected class="text-slate-400">
+                  Selecciona un servicio de interés
+                </option>
+
+                <!-- SERVICIOS TÉCNICOS ESPECÍFICOS -->
+                <optgroup
+                  label="Servicios Especializados"
+                  class="text-slate-800 font-semibold bg-white"
+                >
+                  <option
+                    value="hidrostatica"
+                    class="text-slate-700 font-normal"
+                  >
+                    Pruebas Hidrostáticas
+                  </option>
+                  <option value="neumatica" class="text-slate-700 font-normal">
+                    Pruebas Neumáticas
+                  </option>
+                  <option value="vacio" class="text-slate-700 font-normal">
+                    Pruebas de Vacío
+                  </option>
+                  <option
+                    value="mantenimiento"
+                    class="text-slate-700 font-normal"
+                  >
+                    Mantenimiento a Válvulas y Equipos
+                  </option>
+                  <option value="torques" class="text-slate-700 font-normal">
+                    Torque Controlado
+                  </option>
+                  <option value="spools" class="text-slate-700 font-normal">
+                    Fabricación e Instalación de Spools
+                  </option>
+                  <option value="corte-frio" class="text-slate-700 font-normal">
+                    Corte en Frío
+                  </option>
+                  <option
+                    value="diablos-ductos"
+                    class="text-slate-700 font-normal"
+                  >
+                    Corridas de Diablos y Mantenimiento a Trampas
+                  </option>
+                </optgroup>
+
+                <optgroup
+                  label="¿Duda con tu requerimiento o no aparece en la lista?"
+                  class="text-slate-800 font-semibold bg-white"
+                >
+                  <option
+                    value="asesoria"
+                    class="text-javida-accent font-medium"
+                  >
+                    Asesoría Técnica Sin Costo (Te ayudamos a definirlo)
+                  </option>
+                </optgroup>
+              </select>
+
+              <p
+                v-if="errores.servicio"
+                class="text-red-500 text-xs mt-1.5 font-medium"
+              >
+                {{ errores.servicio }}
+              </p>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-semibold text-slate-700 mb-1"
+              >Detalles del Requerimiento *</label
             >
             <textarea
               v-model="contacto.mensaje"
               @input="limpiarError('mensaje')"
               rows="4"
-              placeholder="¿En qué servicio o prueba estás interesado?"
+              placeholder="Indica detalles relevantes (ej. tipo de prueba, diámetros, presión de trabajo, ubicación del proyecto o problemática a resolver)..."
               :class="[
                 'w-full px-3.5 py-2.5 bg-javida-light border rounded-lg text-sm transition-all focus:outline-hidden focus:bg-white',
                 errores.mensaje
@@ -304,6 +387,7 @@ const contacto = ref({
   empresa: "",
   telefono: "",
   correo: "",
+  servicio: "",
   mensaje: "",
   recaptchaToken: "",
 });
@@ -314,6 +398,7 @@ const errores = ref({
   empresa: "",
   telefono: "",
   correo: "",
+  servicio: "",
   mensaje: "",
   recaptcha: "",
 });
@@ -452,9 +537,13 @@ const validarCampos = () => {
     valido = false;
   }
 
+  if (!contacto.value.servicio.trim()) {
+    errores.value.servicio = "Selecciona un servicio o solicita una asesoría.";
+    valido = false;
+  }
+
   if (!contacto.value.mensaje.trim()) {
-    errores.value.mensaje =
-      "Por favor describe el servicio o requerimiento que necesitas.";
+    errores.value.mensaje = "Por favor describe el requerimiento.";
     valido = false;
   }
 
@@ -479,6 +568,7 @@ const enviarFormulario = async () => {
     empresa: contacto.value.empresa,
     telefono: contacto.value.telefono,
     correo: contacto.value.correo,
+    servicio: contacto.value.servicio,
     mensaje: contacto.value.mensaje,
     "g-recaptcha-response": contacto.value.recaptchaToken,
   };
@@ -512,6 +602,7 @@ const enviarFormulario = async () => {
       empresa: "",
       telefono: "",
       correo: "",
+      servicio: "",
       mensaje: "",
       recaptchaToken: "",
     };
