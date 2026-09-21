@@ -31,17 +31,6 @@
         class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full"
       >
         <div class="max-w-3xl text-white">
-          <!-- Badge superior -->
-          <!-- <div
-            class="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700 px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide mb-6 backdrop-blur-xs"
-          >
-            <font-awesome-icon
-              icon="fa-solid fa-shield-halved"
-              class="text-javida-highlight"
-            />
-            Calidad, Seguridad y Capacidad Operativa
-          </div> -->
-
           <!-- Título -->
           <h1
             class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6"
@@ -55,10 +44,8 @@
             class="border-l-4 border-javida-highlight pl-4 sm:pl-5 py-1 mb-8"
           >
             <p class="text-xl sm:text-2xl font-bold text-white tracking-wide">
-              Control en cada giro.
-              <span class="text-javida-highlight"
-                >Seguridad en cada línea.</span
-              >
+              Eslogan en proceso.
+              <span class="text-javida-highlight">Eslogan en proceso.</span>
             </p>
           </div>
 
@@ -146,60 +133,38 @@
     </section>
 
     <!-- 3. SOBRE NOSOTROS -->
-    <section id="nosotros" class="py-20 bg-javida-primary text-white">
+    <section id="nosotros" class="py-20 lg:py-24 bg-javida-primary text-white">
       <div
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
       >
-        <!-- Texto y Métricas -->
-        <div class="lg:col-span-7">
-          <h2 class="text-3xl font-bold uppercase tracking-wider mb-5">
+        <!-- Texto original con jerarquía y espaciado proporcional -->
+        <div class="lg:col-span-6 space-y-5">
+          <h2
+            class="text-3xl sm:text-4xl font-bold uppercase tracking-wider text-white"
+          >
             Sobre Nosotros
           </h2>
-          <p class="leading-relaxed text-base mb-4">
-            En <strong>Grupo Javida</strong> nos enfocamos en la seguridad
-            operativa, protección ambiental y salud ocupacional. Ofrecemos
-            soluciones técnicas de calidad certificada que cumplen estrictamente
-            con las regulaciones vigentes.
+
+          <p class="text-slate-200 text-base sm:text-lg leading-relaxed">
+            En
+            <strong class="text-white font-semibold">Grupo Javida</strong> nos
+            enfocamos en la seguridad operativa, protección ambiental y salud
+            ocupacional. Ofrecemos soluciones técnicas de calidad certificada
+            que cumplen estrictamente con las regulaciones vigentes.
           </p>
-          <p class="leading-relaxed text-base mb-8">
+
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
             Lideramos el sector a través de personal altamente calificado y
             tecnología de última generación en mantenimiento e inspección.
           </p>
-
-          <!-- <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/15">
-            <div>
-              <h4 class="text-3xl font-extrabold text-javida-highlight mb-1">
-                100%
-              </h4>
-              <span class="text-xs text-slate-300 font-medium"
-                >Cumplimiento Normativo</span
-              >
-            </div>
-            <div>
-              <h4 class="text-3xl font-extrabold text-javida-highlight mb-1">
-                0
-              </h4>
-              <span class="text-xs text-slate-300 font-medium"
-                >Tolerancia a Fugas</span
-              >
-            </div>
-            <div>
-              <h4 class="text-3xl font-extrabold text-javida-highlight mb-1">
-                24/7
-              </h4>
-              <span class="text-xs text-slate-300 font-medium"
-                >Soporte Técnico</span
-              >
-            </div>
-          </div> -->
         </div>
 
-        <!-- Imagen con borde decorativo -->
-        <div class="lg:col-span-5">
+        <!-- Imagen ocupando la mitad completa del ancho para cerrar el espacio muerto -->
+        <div class="lg:col-span-6">
           <img
             src="../assets/images/nosotros.webp"
             alt="Operaciones Grupo Javida"
-            class="w-full h-80 lg:h-96 object-cover rounded-2xl border-4 border-white/10 shadow-2xl"
+            class="w-full h-80 sm:h-96 lg:h-[420px] object-cover rounded-2xl border border-white/10 shadow-2xl"
           />
         </div>
       </div>
