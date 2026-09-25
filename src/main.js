@@ -44,6 +44,14 @@ import {
   faDroplet,
   faWind,
   faGaugeSimple,
+  faChevronDown,
+  faIndustry,
+  faBookBookmark,
+  faCheck,
+  faMagnifyingGlassPlus,
+  faChevronLeft,
+  faChevronRight,
+  faLayerGroup,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -85,6 +93,14 @@ library.add(
   faDroplet,
   faWind,
   faGaugeSimple,
+  faChevronDown,
+  faIndustry,
+  faBookBookmark,
+  faCheck,
+  faMagnifyingGlassPlus,
+  faChevronLeft,
+  faChevronRight,
+  faLayerGroup,
 );
 
 const app = createApp(App);

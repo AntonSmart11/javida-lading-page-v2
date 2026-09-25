@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import ServicesView from "../views/ServicesView.vue";
+import ServiceDetailView from "../views/ServiceDetailView.vue";
 import AboutView from "../views/AboutView.vue";
 import ClientsView from "../views/ClientsView.vue";
 import ContactView from "../views/ContactView.vue";
@@ -27,6 +28,11 @@ const routes = [
       description:
         "Catálogo especializado de servicios técnicos: mantenimiento a válvulas, torque calibrado, corte en frío, corridas de diablos y fabricación de spools.",
     },
+  },
+  {
+    path: "/servicios/:slug",
+    name: "servicio-detalle",
+    component: ServiceDetailView,
   },
   {
     path: "/nosotros",

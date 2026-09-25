@@ -19,18 +19,108 @@
           class="hidden md:flex items-center space-x-8 text-sm font-semibold text-javida-muted"
         >
           <RouterLink
-            v-for="link in navLinks"
-            :key="link.name"
-            :to="link.to"
-            class="hover:text-javida-accent transition-colors"
+            to="/"
+            class="hover:text-javida-accent transition-colors py-2"
           >
-            {{ link.name }}
+            Inicio
+          </RouterLink>
+
+          <div class="relative group">
+            <RouterLink
+              to="/servicios"
+              class="inline-flex items-center gap-1.5 py-6 hover:text-javida-accent transition-colors"
+            >
+              <span>Servicios</span>
+              <font-awesome-icon
+                icon="fa-solid fa-chevron-down"
+                class="text-[10px] text-slate-400 group-hover:text-javida-accent group-hover:rotate-180 transition-transform duration-200"
+              ></font-awesome-icon>
+            </RouterLink>
+
+            <div
+              class="absolute left-1/2 -translate-x-1/2 top-full pt-1 w-80 sm:w-96 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out z-50 pointer-events-none group-hover:pointer-events-auto"
+            >
+              <div
+                class="bg-white rounded-2xl shadow-xl border border-javida-border p-3 space-y-1"
+              >
+                <div
+                  class="px-3 py-1.5 border-b border-slate-100 flex items-center justify-start"
+                >
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-wider text-slate-400"
+                    >Especialidades Industriales</span
+                  >
+                </div>
+
+                <div class="max-h-[360px] overflow-y-auto py-1 space-y-0.5">
+                  <RouterLink
+                    v-for="servicio in SERVICIOS_EMPRESA"
+                    :key="servicio.id"
+                    :to="`/servicios/${servicio.id}`"
+                    class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item"
+                  >
+                    <div
+                      class="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100/80 flex items-center justify-center text-javida-accent text-xs shrink-0 group-hover/item:bg-javida-accent group-hover/item:text-white transition-colors"
+                    >
+                      <font-awesome-icon :icon="servicio.iconBadge" />
+                    </div>
+
+                    <div class="flex-1 min-w-0">
+                      <p
+                        class="text-xs font-bold text-javida-primary group-hover/item:text-javida-accent transition-colors truncate"
+                      >
+                        {{ servicio.titulo }}
+                      </p>
+
+                      <p class="text-[11px] text-slate-400 line-clamp-1">
+                        {{ servicio.homeTitle }}
+                      </p>
+                    </div>
+                  </RouterLink>
+                </div>
+
+                <div class="pt-2 border-t border-slate-100">
+                  <RouterLink
+                    to="/servicios"
+                    class="w-full inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-slate-50 hover:bg-blue-50 text-xs font-semibold text-javida-primary hover:text-javida-accent transition-colors text-center"
+                  >
+                    <span>Ir al catálogo general de servicios</span>
+                    <font-awesome-icon
+                      icon="fa-solid fa-arrow-right"
+                      class="text-[10px]"
+                    />
+                  </RouterLink>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <RouterLink
+            to="/nosotros"
+            class="hover:text-javida-accent transition-colors py-2"
+          >
+            Nosotros
+          </RouterLink>
+
+          <RouterLink
+            to="/clientes"
+            class="hover:text-javida-accent transition-colors py-2"
+          >
+            Clientes
+          </RouterLink>
+
+          <RouterLink
+            to="/contacto"
+            class="hover:text-javida-accent transition-colors py-2"
+          >
+            Contacto
           </RouterLink>
         </nav>
 
         <button
           @click="menuOpen = !menuOpen"
           class="md:hidden text-javida-muted p-2"
+          aria-label="Abrir menú"
         >
           <font-awesome-icon
             :icon="menuOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'"
@@ -45,14 +135,75 @@
         class="md:hidden border-t border-javida-border bg-white px-4 py-4 space-y-3"
       >
         <RouterLink
-          v-for="link in navLinks"
-          :key="link.name"
-          :to="link.to"
-          class="block text-javida-muted hover:text-javida-accent font-medium"
+          to="/"
+          class="block text-javida-muted hover:text-javida-accent font-medium py-1"
           @click="menuOpen = false"
         >
-          {{ link.name }}
+          Inicio
         </RouterLink>
+
+        <div>
+          <div class="flex items-center justify-between py-1">
+            <RouterLink
+              to="/servicios"
+              class="text-javida-muted hover:text-javida-accent font-medium"
+              @click="menuOpen = false"
+            >
+              Servicios (Catálogo)
+            </RouterLink>
+
+            <button
+              @click="serviciosOpenMovil = !serviciosOpenMovil"
+              class="p-1 text-slate-400 hover:text-javida-accent"
+            >
+              <font-awesome-icon
+                icon="fa-solid fa-chevron-down"
+                :class="[
+                  'text-xs transition-transform duration-200',
+                  serviciosOpenMovil ? 'rotate-180 text-javida-accent' : '',
+                ]"
+              />
+            </button>
+          </div>
+
+          <div
+            v-if="serviciosOpenMovil"
+            class="pl-3 mt-1 space-y-2 border-l-2 border-slate-100 py-1"
+          >
+            <RouterLink
+              v-for="servicio in SERVICIOS_EMPRESA"
+              :key="servicio.id"
+              :to="`/servicios/${servicio.id}`"
+              class="block text-xs text-slate-600 hover:text-javida-accent truncate py-1"
+              @click="menuOpen = false"
+            >
+              {{ servicio.titulo }}
+            </RouterLink>
+          </div>
+        </div>
+
+        <RouterLink
+          to="/nosotros"
+          class="block text-javida-muted hover:text-javida-accent font-medium py-1"
+          @click="menuOpen = false"
+        >
+          Nosotros
+        </RouterLink>
+
+        <RouterLink
+          to="/clientes"
+          class="block text-javida-muted hover:text-javida-accent font-medium py-1"
+          @click="menuOpen = false"
+        >
+          Clientes
+        </RouterLink>
+
+        <RouterLink
+          to="/contacto"
+          class="block text-javida-muted hover:text-javida-accent font-medium py-1"
+          @click="menuOpen = false"
+          >Contacto</RouterLink
+        >
       </div>
     </header>
 
@@ -247,10 +398,11 @@
 
 <script setup>
 import { ref } from "vue";
-
+import { SERVICIOS_EMPRESA } from "../data/services";
 import logoJavida from "../assets/images/grupo-javida.webp";
 
 const menuOpen = ref(false);
+const serviciosOpenMovil = ref(false);
 
 const navLinks = [
   { name: "Inicio", to: "/" },
