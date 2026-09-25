@@ -363,7 +363,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted, nextTick, Transition } from "vue";
+import { ref, onMounted, nextTick, Transition, watch } from "vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
 
 const props = defineProps({
   mostrarEncabezado: {
@@ -402,6 +405,18 @@ const errores = ref({
   mensaje: "",
   recaptcha: "",
 });
+
+const serviciosValidos = [
+  "asesoria",
+  "hidrostatica",
+  "neumatica",
+  "vacio",
+  "mantenimiento",
+  "torques",
+  "spools",
+  "corte-frio",
+  "diablos-ductos",
+];
 
 const enviando = ref(false);
 const widgetId = ref(null);
@@ -623,10 +638,26 @@ const enviarFormulario = async () => {
   }
 };
 
+const sincronizarServicioDesdeUrl = () => {
+  const paramServicio = route.query.servicio;
+  if (paramServicio && serviciosValidos.includes(paramServicio)) {
+    contacto.value.servicio = paramServicio;
+  }
+};
+
+watch(
+  () => route.query.servicio,
+  () => {
+    sincronizarServicioDesdeUrl();
+  },
+);
+
 onMounted(() => {
   nextTick(() => {
     inicializarCaptcha();
   });
+
+  sincronizarServicioDesdeUrl();
 });
 </script>
 

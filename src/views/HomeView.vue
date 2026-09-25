@@ -77,8 +77,11 @@
     </section>
 
     <!-- 2. SERVICIOS -->
-    <section id="servicios" class="py-20 bg-javida-light">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="servicios"
+      class="py-20 bg-slate-50 border-y border-javida-border/60"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
         <div class="text-center mb-12">
           <h2
             class="text-3xl font-bold uppercase tracking-wider text-javida-primary mb-2"
@@ -86,48 +89,78 @@
             Servicios Especializados
           </h2>
           <p class="text-javida-muted text-base">
-            Soluciones técnicas diseñadas para asegurar la integridad de tus
-            operaciones.
+            Soluciones técnicas en campo diseñadas para garantizar la
+            estanqueidad, continuidad operativa y seguridad de tus
+            instalaciones.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
-          <div
-            v-for="(item, idx) in services"
-            :key="idx"
-            class="bg-white rounded-xl border border-javida-border overflow-hidden flex flex-col shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article
+            v-for="servicio in SERVICIOS_EMPRESA"
+            :key="servicio.id"
+            class="bg-white rounded-2xl border border-javida-border shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1"
           >
-            <!-- Imagen con Badge Flotante -->
-            <div class="relative h-56 overflow-hidden">
-              <img
-                :src="item.imgHome"
-                :alt="item.homeTitle"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400"
-              />
+            <div>
               <div
-                class="absolute top-3.5 right-3.5 w-11 h-11 bg-white/95 text-javida-primary rounded-lg flex items-center justify-center shadow-md text-lg"
+                class="relative w-full aspect-[16/10] overflow-hidden bg-slate-900"
               >
-                <font-awesome-icon :icon="item.iconBadge" />
+                <img
+                  :src="servicio.galeria.principal"
+                  :alt="servicio.galeria.alt"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"
+                ></div>
+
+                <div
+                  class="absolute top-3 right-3 w-8 h-8 rounded-lg bg-white/90 backdrop-blur-xs border border-white/40 flex items-center justify-center text-javida-accent shadow-xs text-xs"
+                >
+                  <font-awesome-icon :icon="servicio.iconBadge" />
+                </div>
+              </div>
+
+              <div class="p-5">
+                <h3
+                  class="text-base font-bold text-javida-primary group-hover:text-javida-accent transition-colors mb-2 leading-snug"
+                >
+                  {{ servicio.titulo }}
+                </h3>
+                <p class="text-xs text-slate-500 leading-relaxed line-clamp-3">
+                  {{ servicio.descripcionCorta }}
+                </p>
               </div>
             </div>
 
-            <!-- Cuerpo de la tarjeta -->
-            <div class="p-6 flex flex-col grow">
-              <h3 class="text-xl font-bold text-javida-primary mb-2.5">
-                {{ item.homeTitle }}
-              </h3>
-              <p class="text-javida-muted text-sm leading-relaxed mb-5 grow">
-                {{ item.descripcionCorta }}
-              </p>
+            <div class="p-5 pt-0">
               <RouterLink
-                :to="item.enlace"
-                class="inline-flex items-center gap-2 text-javida-accent font-semibold text-sm hover:gap-3 transition-all"
+                :to="`/servicios/${servicio.id}`"
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-javida-accent hover:text-javida-primary transition-colors group-hover:translate-x-0.5 duration-200"
               >
-                Ver detalles
-                <font-awesome-icon icon="fa-solid fa-arrow-right" />
+                <span>Ver detalles</span>
+                <font-awesome-icon
+                  icon="fa-solid fa-arrow-right"
+                  class="text-[10px]"
+                />
               </RouterLink>
             </div>
-          </div>
+          </article>
+        </div>
+
+        <div class="pt-4 flex justify-center text-center">
+          <RouterLink
+            to="/contacto?servicio=asesoria"
+            class="inline-flex items-center gap-2.5 bg-javida-primary hover:bg-javida-accent text-white font-semibold px-8 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md hover:-translate-y-0.5"
+          >
+            <span>Solicita Asesoría Técnica Sin Costo</span>
+            <font-awesome-icon
+              icon="fa-solid fa-arrow-right"
+              class="text-xs text-javida-highlight"
+            />
+          </RouterLink>
         </div>
       </div>
     </section>
