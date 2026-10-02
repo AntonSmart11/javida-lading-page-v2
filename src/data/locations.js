@@ -28,10 +28,10 @@ export const SEDES_EMPRESA = [
     tipo: "Sede Norte",
     ciudad: "Monterrey, Nuevo León",
     direccion:
-      "Zona Metropolitana de Monterrey, Nuevo León (Dirección fiscal y operativa en actualización).",
+      "Calle Turín 127, Col. Acueducto Satélite, C.P. 64968 Monterrey, Nuevo León.",
     correo: "ventasmty@javida.com.mx",
-    linkMaps: "https://maps.app.goo.gl/QXxUtKWi16Bb4xk27", // Actualizar al confirmar
+    linkMaps: "https://maps.app.goo.gl/P8KtxamDZP9sU4EC8",
     embedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115077.53123847285!2d-100.3898881!3d25.6866142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662958403328e37%3A0x6e7b7f14b60e6e7!2sMonterrey%2C%20N.L.!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.032309017882!2d-100.2818200163399!3d25.603842619311443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bf417d53d5d9%3A0x45a9fd83e0b7eae4!2sTur%C3%ADn%20127%2C%20Acueducto%20Sat%C3%A9lite%2C%2064968%20Monterrey%2C%20N.L.!5e0!3m2!1ses-419!2smx!4v1790957874447!5m2!1ses-419!2smx",
   },
 ];
