@@ -27,3 +27,9 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# Backend PHP
+backend/.env
+backend/*.log
+backend/log_google.txt
+backend/data/
