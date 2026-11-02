@@ -23,13 +23,19 @@ dist-ssr
 *.sln
 *.sw?
 
-# .env
+# Logs y archivos temporales de PHP
+backend/error_log
+backend/*.log
+error_log
+*.log
+
+# Dependencias de backend
+backend/vendor/
+vendor/
+
+# Variables de entorno y cachés locales
 .env
 .env.*
 !.env.example
-
-# Backend PHP
 backend/.env
-backend/*.log
-backend/log_google.txt
-backend/data/
+backend/rate_limit.json
