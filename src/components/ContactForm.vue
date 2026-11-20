@@ -520,6 +520,7 @@ const validarCampos = () => {
     empresa: "",
     telefono: "",
     correo: "",
+    mensaje: "",
     recaptcha: "",
   };
 

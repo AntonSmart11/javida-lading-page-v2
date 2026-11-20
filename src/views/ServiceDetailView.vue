@@ -2,23 +2,39 @@
   <MainLayout>
     <div v-if="servicio" class="min-h-screen bg-javida-light py-12 lg:py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <nav
-          class="flex items-center gap-2 text-xs font-semibold text-slate-500"
-        >
-          <RouterLink to="/" class="hover:text-javida-accent transition-colors"
-            >Inicio</RouterLink
+        <div class="flex flex-wrap items-center gap-3.5 mb-6 text-xs">
+          <nav
+            class="flex order-2 items-center gap-2 text-xs font-semibold text-slate-500"
           >
-          <span>/</span>
-          <RouterLink
-            to="/servicios"
-            class="hover:text-javida-accent transition-colors"
-            >Servicios</RouterLink
+            <RouterLink
+              to="/"
+              class="hover:text-javida-accent transition-colors"
+              >Inicio</RouterLink
+            >
+            <span>/</span>
+            <RouterLink
+              to="/servicios"
+              class="hover:text-javida-accent transition-colors"
+              >Servicios</RouterLink
+            >
+            <span>/</span>
+            <span class="text-javida-primary truncate">{{
+              servicio.titulo
+            }}</span>
+          </nav>
+
+          <button
+            @click="volverAtras"
+            type="button"
+            class="inline-flex items-center gap-1.5 font-bold text-javida-primary hover:text-javida-accent transition-colors cursor-pointer group pr-3.5 border-r border-slate-300"
           >
-          <span>/</span>
-          <span class="text-javida-primary truncate">{{
-            servicio.titulo
-          }}</span>
-        </nav>
+            <font-awesome-icon
+              icon="fa-solid fa-arrow-left"
+              class="text-[11px] text-javida-accent group-hover:-translate-x-0.5 transition-transform"
+            />
+            <span>Volver</span>
+          </button>
+        </div>
 
         <header class="max-w-4xl space-y-4">
           <div
@@ -419,11 +435,12 @@
 
 <script setup>
 import { ref, computed, watchEffect, onMounted, onUnmounted } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import MainLayout from "../layout/MainLayout.vue";
 import { SERVICIOS_EMPRESA } from "../data/services.js";
 
 const route = useRoute();
+const router = useRouter();
 
 const servicio = computed(() => {
   const paramSlug = route.params.slug;
@@ -494,6 +511,14 @@ const abrirImagen = (src, alt) => {
 const cerrarImagen = () => {
   modalAbierto.value = false;
   document.body.style.overflow = "";
+};
+
+const volverAtras = () => {
+  if (window.history.length > 1) {
+    router.back();
+  } else {
+    router.push("/servicios");
+  }
 };
 
 watchEffect(() => {

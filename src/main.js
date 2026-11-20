@@ -52,6 +52,7 @@ import {
   faChevronLeft,
   faChevronRight,
   faLayerGroup,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -84,6 +85,7 @@ library.add(
   faCircleXmark,
   faArrowUpRightFromSquare,
   faArrowDown,
+  faArrowLeft,
   faMapLocationDot,
   faWarehouse,
   faBuilding,
