@@ -171,25 +171,54 @@
           class="policy bg-white rounded-3xl border border-javida-border p-8 sm:p-12 shadow-sm"
         >
           <!-- Cabecera Institucional de la Política -->
-          <div class="max-w-3xl mb-12">
-            <div
-              class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-javida-accent bg-blue-50 px-3 py-1 rounded-md mb-3"
-            >
-              Sistema de Gestión Integral
+          <div
+            class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-8 border-b border-slate-100"
+          >
+            <div class="max-w-3xl">
+              <div
+                class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-javida-accent bg-blue-50 px-3 py-1 rounded-md mb-3"
+              >
+                Sistema de Gestión Integral
+              </div>
+              <h2
+                class="text-2xl sm:text-3xl font-extrabold text-javida-primary uppercase tracking-wide mb-4"
+              >
+                Política Integral
+              </h2>
+              <p class="text-javida-muted text-sm sm:text-base leading-relaxed">
+                En
+                <strong class="text-javida-primary">GRUPO JAVIDA</strong>
+                cumplimos los requisitos legales y regulatorios de calidad,
+                seguridad y salud ocupacional y medio ambiente, aplicables a
+                nuestras actividades, servicios y procesos. Así mismo,
+                declaramos nuestro compromiso formal en tres ejes rectores:
+              </p>
             </div>
-            <h2
-              class="text-2xl sm:text-3xl font-extrabold text-javida-primary uppercase tracking-wide mb-4"
+
+            <div
+              class="shrink-0 flex items-center gap-4 bg-javida-light border border-javida-border rounded-2xl p-4 sm:p-5 self-start lg:self-center"
             >
-              Política Integral
-            </h2>
-            <p class="text-javida-muted text-sm sm:text-base leading-relaxed">
-              En
-              <strong class="text-javida-primary">GRUPO JAVIDA</strong>
-              cumplimos los requisitos legales y regulatorios de calidad,
-              seguridad y salud ocupacional y medio ambiente, aplicables a
-              nuestras actividades, servicios y procesos. Así mismo, declaramos
-              nuestro compromiso formal en tres ejes rectores:
-            </p>
+              <img
+                :src="selloIsoLight"
+                alt="Empresa Certificada ISO 9001:2015"
+                class="h-16 sm:h-20 w-auto object-contain"
+              />
+              <div class="max-w-[160px]">
+                <span
+                  class="block text-[10px] font-bold uppercase tracking-wider text-emerald-600 mb-0.5"
+                >
+                  Certificación vigente
+                </span>
+                <h3
+                  class="text-sm font-extrabold text-javida-primary leading-snug"
+                >
+                  ISO 9001:2015
+                </h3>
+                <p class="text-xs text-slate-500 leading-tight mt-1">
+                  Estándar internacional de gestión de calidad.
+                </p>
+              </div>
+            </div>
           </div>
 
           <!-- Cards de los 3 ejes -->
@@ -233,6 +262,7 @@
 
 <script setup>
 import MainLayout from "../layout/MainLayout.vue";
+import selloIsoLight from "../assets/images/iso-9001-light.webp";
 
 // Pilares organizacionales
 const pilares = [

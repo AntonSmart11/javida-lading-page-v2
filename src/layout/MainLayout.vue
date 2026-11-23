@@ -230,11 +230,29 @@
                 class="h-16 w-auto object-contain brightness-150"
               />
             </RouterLink>
-            <p class="text-xs text-slate-400 leading-relaxed pr-4">
+            <p class="text-xs text-slate-400 leading-relaxed pr-4 mb-6">
               Servicios integrales para la industria: pruebas de hermeticidad,
               mantenimiento de válvulas, torque controlado y soluciones
               especializadas.
             </p>
+
+            <div
+              class="flex items-center gap-3.5 bg-slate-900/80 border border-slate-800 rounded-xl p-3 pr-4"
+            >
+              <img
+                :src="selloIsoDark"
+                alt="Certificación ISO 9001:2015"
+                class="h-12 w-12 object-contain shrink-0"
+              />
+              <div class="flex flex-col">
+                <span class="text-xs font-bold text-white leading-tight"
+                  >ISO 9001:2015</span
+                >
+                <span class="text-[11px] text-slate-400 leading-tight mt-0.5">
+                  Sistema de Gestión de Calidad Certificado
+                </span>
+              </div>
+            </div>
           </div>
 
           <!-- Columna 2: Sedes e Instalaciones (lg:col-span-4) -->
@@ -285,7 +303,10 @@
                   />
                   <span>Sede Norte:</span>
                 </p>
-                <p>Zona Metropolitana de Monterrey, Nuevo León.</p>
+                <p>
+                  Calle Turín 127, Col. Acueducto Satélite, C.P. 64968
+                  Monterrey, Nuevo León.
+                </p>
               </div>
             </div>
           </div>
@@ -389,7 +410,9 @@
         <div
           class="border-t border-slate-800/80 pt-6 text-center text-xs text-slate-500"
         >
-          <p>© 2026 Grupo Javida. Todos los derechos reservados.</p>
+          <p>
+            © {{ currentYear }} Grupo Javida. Todos los derechos reservados.
+          </p>
         </div>
       </div>
     </footer>
@@ -400,7 +423,9 @@
 import { ref } from "vue";
 import { SERVICIOS_EMPRESA } from "../data/services";
 import logoJavida from "../assets/images/grupo-javida.webp";
+import selloIsoDark from "../assets/images/iso-9001-dark.webp";
 
+const currentYear = new Date().getFullYear();
 const menuOpen = ref(false);
 const serviciosOpenMovil = ref(false);
 
